@@ -101,6 +101,7 @@ class RateMyAppDialog extends StatelessWidget {
             ],
           ),
         ],
+        contentPadding: dialogStyle.contentPadding,
       );
 
   /// Opens the dialog.
@@ -258,6 +259,7 @@ class RateMyAppStarDialogState extends State<RateMyAppStarDialog> {
           ),
         ),
         actions: widget.onRatingChanged == null ? widget._defaultOnRatingChanged(_currentRating) : widget.onRatingChanged(_currentRating),
+        contentPadding: widget.dialogStyle.contentPadding,
       );
 }
 

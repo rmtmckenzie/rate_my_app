@@ -20,6 +20,9 @@ class DialogStyle {
   /// The message padding.
   final TextStyle messageStyle;
 
+  /// The content padding.
+  final EdgeInsetsGeometry contentPadding;
+
   /// Creates a new dialog style instance.
   const DialogStyle({
     this.titlePadding = const EdgeInsets.all(0),
@@ -28,6 +31,7 @@ class DialogStyle {
     this.messagePadding = const EdgeInsets.all(0),
     this.messageAlign = TextAlign.left,
     this.messageStyle,
+    this.contentPadding = const EdgeInsets.all(24),
   });
 }
 
