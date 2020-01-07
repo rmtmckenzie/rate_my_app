@@ -20,18 +20,14 @@ class DialogStyle {
   /// The message padding.
   final TextStyle messageStyle;
 
-  /// The content padding.
-  final EdgeInsetsGeometry contentPadding;
-
   /// Creates a new dialog style instance.
   const DialogStyle({
-    this.titlePadding = const EdgeInsets.all(0),
+    this.titlePadding,
     this.titleAlign = TextAlign.left,
     this.titleStyle,
-    this.messagePadding = const EdgeInsets.all(0),
+    this.messagePadding = const EdgeInsets.all(24),
     this.messageAlign = TextAlign.left,
     this.messageStyle,
-    this.contentPadding = const EdgeInsets.all(24),
   });
 }
 
@@ -61,6 +57,9 @@ class StarRatingOptions {
   /// The filled icon.
   final IconData filledIconData;
 
+  /// Spacing between the text and the star rating.
+  final EdgeInsetsGeometry padding;
+
   /// Creates a new star rating options instance.
   const StarRatingOptions({
     this.starsFillColor = Colors.orangeAccent,
@@ -71,5 +70,7 @@ class StarRatingOptions {
     this.allowHalfRating = false,
     this.halfFilledIconData,
     this.filledIconData,
-  }) : assert(starsSize != null), assert(allowHalfRating != null);
+    this.padding = const EdgeInsets.only(bottom: 24),
+  }) : assert(starsSize != null), assert(allowHalfRating != null),
+       assert(padding != null);
 }

@@ -1,6 +1,7 @@
 ## 0.5.1
 
-* Added contentPadding to DialogStyle
+* Use titlePadding and messagePadding for AlertDialog's titlePadding and contentPadding
+  so as to give full control over padding. Also add spacing for star rating.
 
 ## 0.5.0+3
 

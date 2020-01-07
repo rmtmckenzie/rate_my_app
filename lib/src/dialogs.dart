@@ -61,22 +61,18 @@ class RateMyAppDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => AlertDialog(
-        title: Padding(
-          padding: dialogStyle.titlePadding,
-          child: Text(
-            title,
-            style: dialogStyle.titleStyle,
-            textAlign: dialogStyle.titleAlign,
-          ),
+        titlePadding: dialogStyle.titlePadding,
+        title: Text(
+          title,
+          style: dialogStyle.titleStyle,
+          textAlign: dialogStyle.titleAlign,
         ),
+        contentPadding: dialogStyle.messagePadding,
         content: SingleChildScrollView(
-          child: Padding(
-            padding: dialogStyle.messagePadding,
-            child: Text(
-              message,
-              style: dialogStyle.messageStyle,
-              textAlign: dialogStyle.messageAlign,
-            ),
+          child: Text(
+            message,
+            style: dialogStyle.messageStyle,
+            textAlign: dialogStyle.messageAlign,
           ),
         ),
         actions: [
@@ -101,7 +97,6 @@ class RateMyAppDialog extends StatelessWidget {
             ],
           ),
         ],
-        contentPadding: dialogStyle.contentPadding,
       );
 
   /// Opens the dialog.
@@ -222,14 +217,13 @@ class RateMyAppStarDialogState extends State<RateMyAppStarDialog> {
 
   @override
   Widget build(BuildContext context) => AlertDialog(
-        title: Padding(
-          padding: widget.dialogStyle.titlePadding,
-          child: Text(
-            widget.title,
-            style: widget.dialogStyle.titleStyle,
-            textAlign: widget.dialogStyle.titleAlign,
-          ),
+        titlePadding: widget.dialogStyle.titlePadding,
+        title: Text(
+          widget.title,
+          style: widget.dialogStyle.titleStyle,
+          textAlign: widget.dialogStyle.titleAlign,
         ),
+        contentPadding: EdgeInsets.zero,
         content: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -242,24 +236,26 @@ class RateMyAppStarDialogState extends State<RateMyAppStarDialog> {
                   textAlign: widget.dialogStyle.messageAlign,
                 ),
               ),
-              SmoothStarRating(
-                onRatingChanged: (rating) {
-                  setState(() => _currentRating = rating);
-                },
-                color: widget.starRatingOptions.starsFillColor,
-                borderColor: widget.starRatingOptions.starsBorderColor,
-                spacing: widget.starRatingOptions.starsSpacing,
-                size: widget.starRatingOptions.starsSize,
-                allowHalfRating: widget.starRatingOptions.allowHalfRating,
-                halfFilledIconData: widget.starRatingOptions.halfFilledIconData,
-                filledIconData: widget.starRatingOptions.filledIconData,
-                rating: _currentRating == null ? 0 : _currentRating.toDouble(),
+              Padding(
+                child: SmoothStarRating(
+                  onRatingChanged: (rating) {
+                    setState(() => _currentRating = rating);
+                  },
+                  color: widget.starRatingOptions.starsFillColor,
+                  borderColor: widget.starRatingOptions.starsBorderColor,
+                  spacing: widget.starRatingOptions.starsSpacing,
+                  size: widget.starRatingOptions.starsSize,
+                  allowHalfRating: widget.starRatingOptions.allowHalfRating,
+                  halfFilledIconData: widget.starRatingOptions.halfFilledIconData,
+                  filledIconData: widget.starRatingOptions.filledIconData,
+                  rating: _currentRating == null ? 0 : _currentRating.toDouble(),
+                ),
+                padding: widget.starRatingOptions.padding,
               ),
             ],
           ),
         ),
         actions: widget.onRatingChanged == null ? widget._defaultOnRatingChanged(_currentRating) : widget.onRatingChanged(_currentRating),
-        contentPadding: widget.dialogStyle.contentPadding,
       );
 }
 
