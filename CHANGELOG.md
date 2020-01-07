@@ -1,3 +1,7 @@
+## 0.5.1
+
+* Added contentPadding to DialogStyle
+
 ## 0.5.0+3
 
 * Updated README and added a link to Marcus Ng video on YouTube.
